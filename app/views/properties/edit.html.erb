@@ -1,4 +1,4 @@
-<h2>物件登録</h2>
+<h2>物件編集</h2>
 <%= form_with(model: @property, local: true) do |form| %>
   <%= form.label :name, "物件名" %><br>
   <%= form.text_field :name %><br>
@@ -12,4 +12,4 @@
   <%= form.text_area :note %><br>
   <%= form.submit "登録する" %><br>
 <% end %>
-<%= link_to "戻る", properties_path %>
+<%= link_to "詳細", property_path(@property.id) %> | <%= link_to "戻る", properties_path %>
