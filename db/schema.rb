@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_122112) do
+ActiveRecord::Schema.define(version: 2020_05_06_123127) do
 
   create_table "properties", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 2020_05_06_122112) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "line_name"
+    t.string "name"
+    t.integer "minutes_walk"
   end
 
 end
