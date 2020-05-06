@@ -7,17 +7,17 @@
     <th>築年数</th>
     <th>備考</th>
   </tr>
-<% @properties.each do |property| %>
-  <tr>
-    <th><%= property.name %></th>
-    <th><%= property.rent %>円</th>
-    <th><%= property.address %></th>
-    <th><%= property.age %>年</th>
-    <th><%= property.note %></th>
-    <th><%= link_to "詳細", property_path(property.id) %></th>
-    <th><%= link_to "編集", edit_property_path(property.id) %></th>
-    <th><%= link_to "削除", property_path(property.id), method: :delete, data: {confirm: "本当に削除してよろしいですか？"} %></th>
-  </tr>
-<% end %>
+  <% @properties.each do |property| %>
+    <tr>
+      <td><%= property.name %></td>
+      <td><%= property.rent %>円</td>
+      <td><%= property.address %></td>
+      <td><%= property.age %>年</td>
+      <td><%= property.note %></td>
+      <td><%= link_to "詳細", property_path(property.id) %></td>
+      <td><%= link_to "編集", edit_property_path(property.id) %></td>
+      <td><%= link_to "削除", property_path(property.id), method: :delete, data: {confirm: "本当に削除してよろしいですか？"} %></td>
+    </tr>
+  <% end %>
 </table>
 <%= link_to "物件を登録する", new_property_path %>
