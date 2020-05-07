@@ -16,7 +16,9 @@ class PropertiesController < ApplicationController
     end
   end
   def show
-    @stations = @property.stations
+  end
+  def edit
+    @property.stations.build
   end
   def update
     if @property.update(property_params)
@@ -34,6 +36,6 @@ class PropertiesController < ApplicationController
     params.require(:property).permit(:name, :rent, :address, :age, :note, stations_attributes: [:id, :line_name, :name, :minutes_walk] )
   end
   def set_property
-    @property = Property.find_by(params[:id])
+    @property = Property.find(params[:id])
   end
 end
