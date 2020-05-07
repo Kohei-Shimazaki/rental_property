@@ -1,0 +1,26 @@
+<div class="property_information">
+  <p>物件名: <%= @property.name %></p>
+  <p>賃料:
+    <% if @property.rent.present? %>
+      <%= @property.rent.to_s(:delimited) %>
+    <% else %>
+      -
+    <% end %>
+    円
+  </p>
+  <p>住所: <%= @property.address %></p>
+  <p>築年数: <%= @property.age %>年</p>
+  <p>備考: <%= @property.note %></p>
+</div>
+<div class="station_information">
+  <% i = 0 %>
+  <% @property.stations.each do |station| %>
+    <div class="station_information">
+      <h4>最寄り駅<%= i += 1 %></h4>
+      <p>路線名: <%= station.line_name %></p>
+      <p>駅名: <%= station.name %></p>
+      <p>徒歩分数: <%= station.minutes_walk %>分</p>
+    </div>
+  <% end %>
+</div>
+<%= link_to "編集", edit_property_path(@property.id) %> | <%= link_to "戻る", properties_path %>
